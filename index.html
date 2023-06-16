@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
     <!-- Core theme CSS -->
     <link rel="stylesheet" href="style.css">
+    <!-- ko-fi widget script -->
+    <script src="ko-fi-widget.js"></script>
   </head>
 
   <body>
@@ -129,11 +131,18 @@
       </a>
     </div>
 
-    <iframe id='kofiframe' src='https://ko-fi.com/omurice_kun/?hidefeed=true&widget=true&embed=true&preview=true' style='border:none;width:100%;padding:4px;background:#f9f9f9;' height='712' title='omurice_kun'></iframe>
-    
     <div id="hashtag">
       ❤️❤️❤️
     </div>
 
+    <script>
+      kofiWidgetOverlay.draw('omurice_kun', {
+        'type': 'floating-chat',
+        'floating-chat.donateButton.text': 'Support me',
+        'floating-chat.donateButton.background-color': '#00b9fe',
+        'floating-chat.donateButton.text-color': '#fff'
+      });
+    </script>
+    
   </body>
 </html>
