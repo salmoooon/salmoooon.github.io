@@ -55,6 +55,7 @@ function showLightbox(index) {
   } else {
     artDescElem.textContent = art.desc;
   }
+  currentIndex = index;
 }
 
 // Open lightbox
