@@ -257,6 +257,7 @@ input:checked + .slider::before {
 
 /* Spacers */
 .spacer {
+  display: block;
   height: 2rem;
   width: 100%;
 }
