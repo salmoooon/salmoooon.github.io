@@ -8,7 +8,6 @@ checkbox.addEventListener("change", () => {
   drawStars();
 });
 
-
 // On load
 const savedTheme = localStorage.getItem("theme");
 if(savedTheme) {
@@ -23,7 +22,7 @@ checkbox.addEventListener("change", () => {
   localStorage.setItem("theme", theme);
 });
 
-// Lightbox with navigation and caption
+// ===== Lightbox setup =====
 const lightbox = document.getElementById("lightbox");
 const lightboxImg = document.querySelector(".lightbox-img");
 const closeBtn = document.querySelector(".lightbox .close");
@@ -32,7 +31,7 @@ const rightArrow = document.querySelector(".lightbox .arrow.right");
 const artNameElem = document.querySelector(".lightbox-caption .art-name");
 const artDescElem = document.querySelector(".lightbox-caption .art-desc");
 
-// Gather artworks with name and description
+// Gather artworks
 const artworks = Array.from(document.querySelectorAll(".gallery-grid img")).map(img => ({
   src: img.src,
   alt: img.alt,
@@ -43,22 +42,29 @@ const artworks = Array.from(document.querySelectorAll(".gallery-grid img")).map(
 
 let currentIndex = 0;
 
+// ===== Functions =====
 function showLightbox(index) {
   const art = artworks[index];
   lightbox.style.display = "flex";
   lightboxImg.src = art.src;
   lightboxImg.alt = art.alt;
   artNameElem.textContent = art.name;
-  
-  if(art.link){
-    artDescElem.innerHTML = `${art.desc} <a href="${art.link}" target="_blank">Link to Artist</a>`;
+  // Display description with clickable link if present
+  if(art.link) {
+    artDescElem.innerHTML = `${art.desc} <a href="${art.link}" target="_blank" rel="noopener">Link to Artist</a>`;
   } else {
     artDescElem.textContent = art.desc;
   }
-  currentIndex = index;
+  currentIndex = index; // important!
 }
 
-// Open lightbox
+// Navigate lightbox
+function showNext() { showLightbox((currentIndex + 1) % artworks.length); }
+function showPrev() { showLightbox((currentIndex - 1 + artworks.length) % artworks.length); }
+
+// ===== Event Listeners =====
+
+// Open lightbox when clicking gallery image
 document.querySelectorAll(".gallery-grid img").forEach((img, i) => {
   img.addEventListener("click", () => showLightbox(i));
 });
@@ -66,33 +72,23 @@ document.querySelectorAll(".gallery-grid img").forEach((img, i) => {
 // Close lightbox
 closeBtn.addEventListener("click", () => lightbox.style.display = "none");
 lightbox.addEventListener("click", (e) => {
-  if (e.target === lightbox) lightbox.style.display = "none";
+  if(e.target === lightbox) lightbox.style.display = "none";
 });
 
-// Navigation arrows
-function showNext() {
-  showLightbox((currentIndex + 1) % artworks.length);
-}
+// Prevent clicking link from closing lightbox
+artDescElem.addEventListener("click", e => e.stopPropagation());
 
-function showPrev() {
-  showLightbox((currentIndex - 1 + artworks.length) % artworks.length);
-}
+// Arrow buttons
+leftArrow.addEventListener("click", e => { e.stopPropagation(); showPrev(); });
+rightArrow.addEventListener("click", e => { e.stopPropagation(); showNext(); });
 
-leftArrow.addEventListener("click", (e) => { e.stopPropagation(); showPrev(); });
-rightArrow.addEventListener("click", (e) => { e.stopPropagation(); showNext(); });
-
-document.addEventListener("keydown", (e) => {
-  if(lightbox.style.display === "flex") { // only if lightbox is open
-    switch(e.key) {
-      case "ArrowLeft":
-        showPrev();
-        break;
-      case "ArrowRight":
-        showNext();
-        break;
-      case "Escape":
-        lightbox.style.display = "none";
-        break;
+// Keyboard navigation
+document.addEventListener("keydown", e => {
+  if(lightbox.style.display === "flex") {
+    switch(e.key){
+      case "ArrowLeft": showPrev(); break;
+      case "ArrowRight": showNext(); break;
+      case "Escape": lightbox.style.display = "none"; break;
     }
   }
 });
@@ -101,9 +97,7 @@ document.addEventListener("keydown", (e) => {
 document.querySelectorAll("details.animated").forEach((details) => {
   const summary = details.querySelector("summary");
   const content = details.querySelector(".details-content");
-
   details.style.overflow = "hidden";
-
   summary.addEventListener("click", (e) => {
     e.preventDefault();
     if (details.open) {
