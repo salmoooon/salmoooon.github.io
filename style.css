@@ -255,6 +255,11 @@ input:checked + .slider::before {
   text-decoration: none;
 }
 
+/* Spacers */
+.spacer {
+  margin: 2rem;
+}
+
 /* Collapsible */
 details {
   background: var(--bg);
