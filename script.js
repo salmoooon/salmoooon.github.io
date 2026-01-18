@@ -1,3 +1,46 @@
+// Language state
+let currentLanguage = localStorage.getItem("language") || "en";
+
+// Translation function
+function t(key) {
+  return translations[currentLanguage][key] || translations.en[key] || key;
+}
+
+// Update DOM with translations
+function updatePageLanguage() {
+  document.querySelectorAll("[data-i18n]").forEach(el => {
+    const key = el.getAttribute("data-i18n");
+    const text = t(key);
+    
+    // Find and replace only the first text node, preserving nested elements
+    let foundTextNode = false;
+    for (let node of el.childNodes) {
+      if (node.nodeType === Node.TEXT_NODE) {
+        node.textContent = text;
+        foundTextNode = true;
+        break;
+      }
+    }
+    
+    // If no text node exists, prepend as text node
+    if (!foundTextNode) {
+      el.textContent = text;
+    }
+  });
+}
+
+// Language toggle setup
+const languageCheckbox = document.getElementById("language-checkbox");
+languageCheckbox.checked = currentLanguage === "zh";
+languageCheckbox.addEventListener("change", () => {
+  currentLanguage = languageCheckbox.checked ? "zh" : "en";
+  localStorage.setItem("language", currentLanguage);
+  updatePageLanguage();
+});
+
+// Update page on load
+updatePageLanguage();
+
 // Dark/Light mode toggle
 const body = document.body;
 const checkbox = document.getElementById("theme-checkbox");

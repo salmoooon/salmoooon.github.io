@@ -14,11 +14,17 @@
 <body data-theme="dark">
   <!-- Canvas for star background -->
   <canvas id="star-canvas"></canvas>
-  <!-- Dark/Light Toggle Switch -->
+  <!-- Dark/Light Toggle Switch & Language Toggle -->
   <div class="theme-toggle">
     <label class="switch">
       <input type="checkbox" id="theme-checkbox">
       <span class="slider"></span>
+    </label>
+  </div>
+  <div class="language-toggle">
+    <label class="switch">
+      <input type="checkbox" id="language-checkbox">
+      <span class="slider lang-slider"></span>
     </label>
   </div>
   <div class="container">
@@ -27,119 +33,119 @@
       <img src="/images/profile.png" alt="Profile picture">
       <div>
         <h1>salmoooon</h1>
-        <p>Wrong place if you came for your morning fix...🚬</p>
-        <p>Here you'll find everything I want you to know about me though!</p>
+        <p data-i18n="tagline"></p>
+        <p data-i18n="intro"></p>
       </div>
     </div>
     <!-- Things I Enjoy/Hate -->
       <details class="animated">
-        <summary>Things I Enjoy:</summary>
+        <summary data-i18n="enjoy_summary"></summary>
         <div class="details-content">
           <ul>
-            <li>🚬 Smoking
+            <li data-i18n="enjoy_smoking">
               <ul>
-                <li>Cigs, cigars, vapes, shisha, you name it!</li>
-                <li>I might be the healthiest smoker you've met</li>
+                <li data-i18n="enjoy_smoking_1"></li>
+                <li data-i18n="enjoy_smoking_2"></li>
               </ul>
             </li>
-            <li>🖼️ Shota art
+            <li data-i18n="enjoy_shota">
               <ul>
-                <li>Both SFW & NSFW, as long as it's fictional</li>
-                <li>I married to a shota artist</li>
+                <li data-i18n="enjoy_shota_1"></li>
+                <li data-i18n="enjoy_shota_2"></li>
               </ul>
             </li>
-            <li>🐾 Furries
+            <li data-i18n="enjoy_furries">
               <ul>
-                <li>Spent way too much on commissions...</li>
-                <li>I don't RP though</li>
+                <li data-i18n="enjoy_furries_1"></li>
+                <li data-i18n="enjoy_furries_2"></li>
               </ul>
             </li>
-            <li>🐱 Cats
+            <li data-i18n="enjoy_cats">
               <ul>
-                <li>Proud owner of two cats</li>
-                <li>One of them screams every night which affects my sleep real bad</li>
+                <li data-i18n="enjoy_cats_1"></li>
+                <li data-i18n="enjoy_cats_2"></li>
               </ul>
             </li>
-            <li>🖱️ Self-hosting
+            <li data-i18n="enjoy_selfhost">
               <ul>
-                <li>This site was built with HTML, CSS, and JavaScript</li>
-                <li>Not self-hosted though, it's hosted on Github Pages</li>
+                <li data-i18n="enjoy_selfhost_1"></li>
+                <li data-i18n="enjoy_selfhost_2"></li>
               </ul>
             </li>
-            <li>🖥️ PC Building
+            <li data-i18n="enjoy_pc">
               <ul>
-                <li>RGB is a sin, change my mind</li>
-                <li>I worked for a PC component company</li>
+                <li data-i18n="enjoy_pc_1"></li>
+                <li data-i18n="enjoy_pc_2"></li>
               </ul>
             </li>
-            <li>🐍 Python
+            <li data-i18n="enjoy_python">
               <ul>
-                <li>I worked as a backend SWE/SQA, okay, I'll stop the boring part LMAO!</li>
+                <li data-i18n="enjoy_python_1"></li>
               </ul>
             </li>
-            <li>🀄 Languages
+            <li data-i18n="enjoy_languages">
               <ul>
-                <li>I've been on the internet long enough to write/speak in English</li>
-                <li>但其實中文才是我的母語</li>
-                <li>日本語は...ちょっと話せます</li>
-                <li>No, programming languages don't count as one</li>
+                <li data-i18n="enjoy_languages_1"></li>
+                <li data-i18n="enjoy_languages_2"></li>
+                <li data-i18n="enjoy_languages_3"></li>
+                <li data-i18n="enjoy_languages_4"></li>
               </ul>
             </li>
-            <li>💩 Long lists and emojis
+            <li data-i18n="enjoy_lists">
               <ul>
-                <li>Like the one you're reading!</li>
-                <li>I used as few emojis as possible, I promise! 💩💩💩</li>
+                <li data-i18n="enjoy_lists_1"></li>
+                <li data-i18n="enjoy_lists_2"></li>
               </ul>
             </li>
-            <li>🎮 Indie games
+            <li data-i18n="enjoy_games">
               <ul>
-                <li>Outer Wilds, Hollow Knight, and Sludge Life, to name my three favorite games/series</li>
+                <li data-i18n="enjoy_games_1"></li>
               </ul>
             </li>
-            <li>💗 Kirby
+            <li data-i18n="enjoy_kirby">
               <ul>
-                <li>I have a cabinet full of Kirby plushies, figures, and merch</li>
-                <li>I 100%-ed all "Good" Kirby games released on the DS, Switch 1 & 2</li>
+                <li data-i18n="enjoy_kirby_1"></li>
+                <li data-i18n="enjoy_kirby_2"></li>
               </ul>
             </li>
-            <li>⚔️ FFXIV (FF14)
+            <li data-i18n="enjoy_ffxiv">
               <ul>
-                <li>The game that influenced me the most</li>
-                <li>↪️ララフェル↩️↪️最高品質↩️</li>
-                <li>Learned 3D modeling and game modding, just so my character could smoke in-game</li>
+                <li data-i18n="enjoy_ffxiv_1"></li>
+                <li data-i18n="enjoy_ffxiv_2"></li>
+                <li data-i18n="enjoy_ffxiv_3"></li>
               </ul>
             </li>
-            <li>😶‍🌫️ Did I mention smoking?
+            <li data-i18n="enjoy_smoking2">
               <ul>
-                <li>Been a proud smoker for 15+ years!</li>
-                <li>No brand preference though, I smoke what I got</li>
+                <li data-i18n="enjoy_smoking2_1"></li>
+                <li data-i18n="enjoy_smoking2_2"></li>
               </ul>
             </li>
-            <li>🏕️ Camping
+            <li data-i18n="enjoy_camping">
               <ul>
-                <li>Not glamping, not hardcore hiking, just normal camping!</li>
+                <li data-i18n="enjoy_camping_1"></li>
               </ul>
             </li>
-            <li>📚 Reading
+            <li data-i18n="enjoy_reading">
               <ul>
-                <li>Manga, science fiction, political</li>
-                <li>Yes, I still buy in physical in today's year</li>
+                <li data-i18n="enjoy_reading_1"></li>
+                <li data-i18n="enjoy_reading_2"></li>
               </ul>
             </li>
-            <li>✏️ Writing
+            <li data-i18n="enjoy_writing">
               <ul>
-                <li>I never shared my work with anyone except my significant other though</li>
+                <li data-i18n="enjoy_writing_1"></li>
               </ul>
             </li>
-            <li>🗣️ Politics
+            <li data-i18n="enjoy_politics">
               <ul>
-                <li>Discussions, but not arguments</li>
+                <li data-i18n="enjoy_politics_1"></li>
               </ul>
             </li>
-            <li>🧹 Cleaning/Renovating My House
+            <li data-i18n="enjoy_house">
               <ul>
-                <li>IDK what else to put in, so here it is</li>
-                <li>But I mean for real, I like things to be tidy and comfy!</li>
+                <li data-i18n="enjoy_house_1"></li>
+                <li data-i18n="enjoy_house_2"></li>
               </ul>
             </li>
           </ul>
@@ -147,37 +153,37 @@
       </details>
       <div class="spacer"></div>
       <details class="animated">
-        <summary>Things I Hate:</summary>
+        <summary data-i18n="hate_summary"></summary>
         <div class="details-content">
           <ul>
-            <li>🤬 Ignorance + opposition = idiot
+            <li data-i18n="hate_ignorance">
               <ul>
-                <li>If you dislike something and wanna tell everyone about it, make sure you know the thing well enough first</li>
-                <li>Expressing your negative opinions while knowing nothing about it makes you an idiot</li>
+                <li data-i18n="hate_ignorance_1"></li>
+                <li data-i18n="hate_ignorance_2"></li>
               </ul>
             </li>
-            <li>📱 Social Media
+            <li data-i18n="hate_social">
               <ul>
-                <li>I try to avoid anything with addictive algorithms, AI slop, censorship, cancel culture, or hate content</li>
-                <li>Even if I have to use them cuz there're no alternatives, I try my best to limit/isolate myself from the above</li>
+                <li data-i18n="hate_social_1"></li>
+                <li data-i18n="hate_social_2"></li>
               </ul>
             </li>
-            <li>✨ Misused Generative AI
+            <li data-i18n="hate_ai">
               <ul>
-                <li>If you used Gen AI, say that you used it</li>
-                <li>If you want to take others' work for Gen AI training/referencing, get permission first</li>
-                <li>Little do I know that no one understands this common knowledge</li>
-                <li>This website was made with the help of ChatGPT.</li>
+                <li data-i18n="hate_ai_1"></li>
+                <li data-i18n="hate_ai_2"></li>
+                <li data-i18n="hate_ai_3"></li>
+                <li data-i18n="hate_ai_4"></li>
               </ul>
             </li>
-            <li>⌛ FOMO/Preordering/Hyping
+            <li data-i18n="hate_fomo">
               <ul>
-                <li>Learned my lesson through Monster Hunter Wilds, and here are three rules I made for myself</li>
+                <li data-i18n="hate_fomo_1"></li>
               </ul>
               <ol>
-                <li>Never preorder</li>
-                <li>Read reviews before purchasing</li>
-                <li>Treat old stuff as new if you've never experienced it</li>
+                <li data-i18n="hate_fomo_2"></li>
+                <li data-i18n="hate_fomo_3"></li>
+                <li data-i18n="hate_fomo_4"></li>
               </ol>
             </li>
           </ul>
@@ -186,40 +192,40 @@
       <div class="spacer"></div>
     <!-- Gallery Section -->
     <div class="card gallery">
-      <h2>Marbo, my furry OC</h2>
+      <h2 data-i18n="gallery_title"></h2>
         <details class="animated">
-          <summary>Character Details:</summary>
+          <summary data-i18n="char_details_summary"></summary>
           <div class="details-content">
             <ul>
-              <li>Age:</li>
+              <li data-i18n="char_age"></li>
                 <ul>
-                  <li>10 months old</li>
-                  <li>≈ 13.5 years old in human age</li>
+                  <li data-i18n="char_age_1"></li>
+                  <li data-i18n="char_age_2"></li>
                 </ul>
-              <li>Species: Half cat half raccoon</li>
-              <li>Gender:</li>
+              <li data-i18n="char_species"></li>
+              <li data-i18n="char_gender"></li>
                 <ul>
-                  <li>Male</li>
-                  <li>He/Him</li>
+                  <li data-i18n="char_gender_1"></li>
+                  <li data-i18n="char_gender_2"></li>
                 </ul>
-              <li>Build:</li>
+              <li data-i18n="char_build"></li>
                 <ul>
-                  <li>140cm / 4′7″</li>
-                  <li>40kg / 88lbs</li>
+                  <li data-i18n="char_build_1"></li>
+                  <li data-i18n="char_build_2"></li>
                 </ul>
-              <li>Alignment: Chaotic Neutral</li>
-              <li>Smoking:
+              <li data-i18n="char_alignment"></li>
+              <li data-i18n="char_smoking">
                 <ul>
-                  <li>Two packs/day</li>
+                  <li data-i18n="char_smoking_1"></li>
                   <li>Marlboro Reds</li>
                 </ul>
               </li>
-              <li>Hobbies:
+              <li data-i18n="char_hobbies">
                 <ul>
-                  <li>Scateboarding</li>
-                  <li>Drunk driving w/o license</li>
-                  <li>Yiffing</li>
-                  <li>and of course, smoking</li>
+                  <li data-i18n="char_hobbies_1"></li>
+                  <li data-i18n="char_hobbies_2"></li>
+                  <li data-i18n="char_hobbies_3"></li>
+                  <li data-i18n="char_hobbies_4"></li>
                 </ul>
               </li>
             </ul>
@@ -257,15 +263,16 @@
     </div>
     <!-- Contact -->
     <div class="card contact">
-      <h2>Contact Me</h2>
-      <p>I don't do social media anymore, but you can still find me through:</p>
-      <a href="mailto:salmoooon@nicotine.buzz">Email</a>
-      <a href="https://discordapp.com/users/102067807251869696" target="_blank">Discord</a>
+      <h2 data-i18n="contact_title"></h2>
+      <p data-i18n="contact_desc"></p>
+      <a href="mailto:salmoooon@nicotine.buzz" data-i18n="contact_email"></a>
+      <a href="https://discordapp.com/users/102067807251869696" target="_blank" data-i18n="contact_discord"></a>
     </div>
     <footer>
-      © 2026 salmoooon. Built with ChatGPT.
+      <span data-i18n="footer"></span>
     </footer>
   </div>
+  <script src="/translations.js"></script>
   <script src="/script.js"></script>
 </body>
 </html>
